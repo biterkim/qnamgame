@@ -126,7 +126,11 @@
 
         function onload() {
             var winHeight = document.documentElement.clientHeight;
-            document.getElementById("canvasDiv").style.height = winHeight + "px";
+            if (window.matchMedia && window.matchMedia('(max-width: 430px)').matches) {
+                document.getElementById("canvasDiv").style.height = winHeight - 50 + "px";
+            } else {
+                document.getElementById("canvasDiv").style.height = winHeight + "px";
+            }
         };
         window.onload = function() {
             document.getElementById("block-Box").style.display = "none";
