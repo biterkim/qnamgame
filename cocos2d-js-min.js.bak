@@ -6350,7 +6350,7 @@
     49: [(function(t, e, i) {
         "use strict";
         var n = t("./platform/utils"),
-            r = (t("../../DebugInfos"), ""),
+            r = (t("../../DebugInfos"), "https://github.com/cocos-creator/engine/blob/master/EngineErrorMap.md"),
             s = void 0;
         cc.log = cc.warn = cc.error = cc.assert = console.log.bind ? console.log.bind(console) : console.log;
 
@@ -6573,7 +6573,7 @@
             },
             _loadSceneByUuid: function(t, e, i, n) {
                 console.time("LoadScene " + t), cc.AssetLibrary.loadAsset(t, (function(n, r) {
-                    // console.timeEnd("LoadScene " + t);
+                    console.timeEnd("LoadScene " + t);
                     var s = cc.director;
                     if (s._loadingScene = "", n) n = "Failed to load scene: " + n, cc.error(n);
                     else {
@@ -6739,8 +6739,7 @@
                 _prepareFinished: function(t) {
                     var e = this;
                     this._initEngine(), this._setAnimFrame(), cc.AssetLibrary._loadBuiltins((function() {
-                         e._prepared = !0, e._runMainLoop(), e.emit(e.EVENT_GAME_INITED), t && t()
-                        // console.log("Cocos Creator v" + cc.ENGINE_VERSION), e._prepared = !0, e._runMainLoop(), e.emit(e.EVENT_GAME_INITED), t && t()
+                        console.log("Cocos Creator v" + cc.ENGINE_VERSION), e._prepared = !0, e._runMainLoop(), e.emit(e.EVENT_GAME_INITED), t && t()
                     }))
                 },
                 eventTargetOn: n.prototype.on,
@@ -18399,8 +18398,7 @@
                         var l = r.unpacker.retrieve(i);
                         return l || _(i, n)
                     }
-                    return r || ((r = h[n] = new o).state = s.Downloading), this._loadNewPack(i, n, e), null
-                    // return r || (console.log("Create unpacker %s for %s", n, i), (r = h[n] = new o).state = s.Downloading), this._loadNewPack(i, n, e), null
+                    return r || (console.log("Create unpacker %s for %s", n, i), (r = h[n] = new o).state = s.Downloading), this._loadNewPack(i, n, e), null
                 }
             },
             release: function(t) {
@@ -22794,8 +22792,7 @@
                         C.context = new(window.AudioContext || window.webkitAudioContext || window.mozAudioContext)
                     }), 0))
                 } catch (t) {
-                    // C.WEB_AUDIO = !1, cc.logID(5201)
-                    C.WEB_AUDIO = !1
+                    C.WEB_AUDIO = !1, cc.logID(5201)
                 }
                 var S = [];
                 (function() {
@@ -42256,7 +42253,7 @@
         r || (r = {}), (function(t) {
             var e = (function() {
                 function e(i) {
-                    this._clock = new t.WorldClock, this._events = [], this._objects = [], this._eventManager = null, this._eventManager = i, console.info("")
+                    this._clock = new t.WorldClock, this._events = [], this._objects = [], this._eventManager = null, this._eventManager = i, console.info("DragonBones: " + e.VERSION + "\nWebsite: http://dragonbones.com/\nSource and Demo: https://github.com/DragonBones/")
                 }
                 return e.prototype.advanceTime = function(e) {
                     if (this._objects.length > 0) {
@@ -46337,7 +46334,7 @@
                         }
                         return t.DataParser.TEXTURE_ATLAS in e && (this._rawTextureAtlases = e[t.DataParser.TEXTURE_ATLAS]), o
                     }
-                    return console.assert(!1, "Nonsupport data version: " + n + ""), null
+                    return console.assert(!1, "Nonsupport data version: " + n + "\nPlease convert DragonBones data to support version.\nRead more: https://github.com/DragonBones/Tools/"), null
                 }, r.prototype.parseTextureAtlasData = function(e, i, n) {
                     if (void 0 === n && (n = 1), console.assert(void 0 !== e), null === e) {
                         if (null === this._rawTextureAtlases || 0 === this._rawTextureAtlases.length) return !1;
